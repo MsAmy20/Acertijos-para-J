@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canva</title>
+    <style>
+        body {
+            background-color: #0d47a1; /* Color azul */
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .riddle-container {
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #1976d2;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .riddle-container input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .riddle-container button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #64b5f6;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #reward {
+            display: none;
+            margin-top: 50px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canva</h1>
+    <div class="riddle-container" id="riddle-1">
+        <p>Acertijo 1: <strong>¿Qué tiene cabeza, pero no cerebro?</strong></p>
+        <input type="text" id="answer-1">
+        <button onclick="checkAnswer(1, 'clavo')">Responder</button>
+    </div>
+    <div class="riddle-container" id="riddle-2" style="display:none;">
+        <p>Acertijo 2: <strong>¿Qué cosa se rompe al decir su nombre?</strong></p>
+        <input type="text" id="answer-2">
+        <button onclick="checkAnswer(2, 'silencio')">Responder</button>
+    </div>
+    <div class="riddle-container" id="riddle-3" style="display:none;">
+        <p>Acertijo 3: <strong>Si me nombras, desaparezco. ¿Qué soy?</strong></p>
+        <input type="text" id="answer-3">
+        <button onclick="checkAnswer(3, 'silencio')">Responder</button>
+    </div>
+    <div class="riddle-container" id="riddle-4" style="display:none;">
+        <p>Acertijo 4: <strong>¿Qué tiene una llave, pero no puede abrir ninguna puerta?</strong></p>
+        <input type="text" id="answer-4">
+        <button onclick="checkAnswer(4, 'piano')">Responder</button>
+    </div>
+    <div class="riddle-container" id="riddle-5" style="display:none;">
+        <p>Acertijo 5: <strong>Cuanto más quitas, más grande se hace. ¿Qué es?</strong></p>
+        <input type="text" id="answer-5">
+        <button onclick="checkAnswer(5, 'agujero')">Responder</button>
+    </div>
+    <div class="riddle-container" id="riddle-6" style="display:none;">
+        <p>Acertijo 6: <strong>¿Qué corre, pero nunca camina?</strong></p>
+        <input type="text" id="answer-6">
+        <button onclick="checkAnswer(6, 'agua')">Responder</button>
+    </div>
+    <div class="riddle-container" id="riddle-7" style="display:none;">
+        <p>Acertijo 7: <strong>¿Qué tiene un ojo, pero no puede ver?</strong></p>
+        <input type="text" id="answer-7">
+        <button onclick="checkAnswer(7, 'aguja')">Responder</button>
+    </div>
+
+    <div id="reward">
+        <p>edit?utm_content=DAGPLPfzpXM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton</p>
+    </div>
+
+    <script>
+        let currentRiddle = 1;
+
+        function checkAnswer(riddleNumber, correctAnswer) {
+            const answerInput = document.getElementById('answer-' + riddleNumber);
+            const userAnswer = answerInput.value.toLowerCase().trim();
+
+            if (userAnswer === correctAnswer.toLowerCase()) {
+                document.getElementById('riddle-' + riddleNumber).style.display = 'none';
+                currentRiddle++;
+
+                if (currentRiddle <= 7) {
+                    document.getElementById('riddle-' + currentRiddle).style.display = 'block';
+                } else {
+                    document.getElementById('reward').style.display = 'block';
+                }
+            } else {
+                alert('Respuesta incorrecta. Inténtalo de nuevo.');
+            }
+        }
+    </script>
+</body>
+</html>
